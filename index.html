@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Proxemics-based reward modeling for socially compliant robot navigation with deep reinforcement learning.">
+  <meta name="keywords" content="social navigation, deep reinforcement learning, proxemics, robot navigation, human-aware navigation, DRL, reward modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Towards Socially Compliant Navigation in DRL via Proxemics-Based Reward Modeling</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://team.inria.fr/chroma/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://team.inria.fr/chroma/">
+            Chroma Team @ Inria
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Towards Socially Compliant Navigation in Deep Reinforcement Learning via Proxemics-Based Reward Modeling</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Takieddine Soualhi</a><sup>1,∗</sup>,</span>
+            <span class="author-block">
+              <a href="#">Jacques Saraydaryan</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Laetitia Matignon</a><sup>3</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.4em;">
+            <span class="author-block"><sup>1</sup>Inria, CITI Lab, INRIA–INSA Chroma Team &nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>CPE Lyon, CITI Lab, INRIA–INSA Chroma Team &nbsp;&nbsp;</span>
+            <span class="author-block"><sup>3</sup>Univ Lyon 1, INSA Lyon, CNRS, LIRIS</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.3em; color: #555;">
+            <span class="author-block"><sup>∗</sup>Corresponding author</span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 0.6em;">
+            <span class="author-block"><b>IROS 2026</b></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="image" style="max-width: 70%; margin: 0 auto;">
+        <img src="./static/images/teaser.png"
+             alt="Illustration of the DRL social navigation problem. The robot must reach a goal while navigating among humans and respecting proxemic zones."/>
+      </figure>
+      <h2 class="subtitle has-text-centered" style="margin-top: 1em;">
+        The robot must reach a goal while navigating among humans and respecting proxemic zones.
+        The dashed red trajectory illustrates a socially compliant path.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract + Video -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Developing effective robot navigation methods in crowded environments is essential for
+            real-world applications. Although recent deep reinforcement learning (DRL) methods have
+            improved navigation performance in crowded environments, they often focus primarily on
+            task-centric objectives and underrepresent social compliance objectives.
+          </p>
+          <p>
+            In this paper, we introduce a novel proxemics-based reward formulation for DRL social
+            navigation that provides a dense, interpretable social learning signal while maintaining
+            navigation efficiency. Our approach models each human's personal space as a radial
+            Gaussian-mixture field derived from Hall's proxemics theory and computes a robot-centric
+            local cost over the robot's field of view.
+          </p>
+          <p>
+            We integrate the proposed reward into established DRL navigation methods and evaluate it
+            in simulation across multiple crowd scenarios, reward baselines, and crowd densities using
+            both navigation metrics and social metrics. Results show that the proposed reward
+            consistently improves social metrics in simulation while maintaining competitive navigation
+            performance relative to the compared reward models.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <!-- Replace VIDEO_ID with your YouTube video ID -->
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Method + Results + Related -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our reward model promotes socially compliant navigation by integrating Hall's proxemics
+            theory into the reinforcement learning signal. For each detected human, we define a radially
+            symmetric proxemic field &phi;<sub>j</sub>(x,&nbsp;y) modeled as an isotropic Gaussian
+            mixture over the four interpersonal zones (intimate, personal, social, public). These
+            per-human fields are aggregated into a social cost map M<sub>t</sub>(x,&nbsp;y) and
+            convolved with a robot-centered Gaussian kernel &kappa;(x,&nbsp;y) over the robot's
+            instantaneous field of view &Omega;<sub>t</sub>.
+          </p>
+          <p>
+            The resulting scalar proxemic intrusion cost C<sub>t</sub> quantifies the spatial overlap
+            between the robot's local neighborhood and human-induced proxemic costs. The reward is
+            defined as the negative temporal difference &minus;&lambda;&thinsp;&Delta;C<sub>t</sub>,
+            penalizing increasing intrusions and rewarding movement toward lower-cost regions, without
+            encouraging the robot to stall.
+          </p>
+        </div>
+        <figure class="image" style="margin-top: 1.5em; max-width: 120%; margin-left: -10%; margin-right: -10%;">
+          <img src="./static/images/method.png"
+               alt="Illustration of the proposed proxemics-based reward model."/>
+        </figure>
+        <p class="has-text-centered is-size-6" style="margin-top: 0.8em; color: #666;">
+          Detected humans generate individual proxemic fields &phi;<sub>j</sub>(x,y), aggregated into
+          a social cost map and locally weighted by a robot-centered kernel &kappa;(x,y). The proxemic
+          reward r<sub>prox,t</sub> is computed from the temporal difference of the resulting cost.
+        </p>
+      </div>
+    </div>
+
+    <br/><br/>
+
+    <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We integrate our proxemics-based reward R<sub>p</sub> into two established DRL navigation
+            methods — <strong>AttnGraph</strong> and <strong>MultiSoc</strong> — and compare against
+            three baselines: no social reward (Base), a distance-based reward (R<sub>d</sub>), and a
+            velocity-based reward (R<sub>v</sub>). Experiments are conducted in two crowd scenarios:
+            <em>Circle Crossing</em> and <em>Corridor</em>, evaluated on both navigation metrics
+            (success rate, collision rate) and social metrics (minimum distance, social compliance,
+            time-to-collision, jerk).
+          </p>
+          <p>
+            Across all settings, R<sub>p</sub> consistently yields the strongest gains on social metrics
+            while remaining competitive on navigation performance. The robot maintains larger clearances
+            from pedestrians, spends less time within intimate zones, and exhibits smoother trajectories
+            — confirming that grounding the reward in proxemic zones provides a dense, informative
+            learning signal that goes beyond collision avoidance.
+          </p>
+        </div>
+        <figure class="image" style="margin-top: 1.5em;">
+          <img src="./static/images/trajectories.png"
+               alt="Sample trajectories for AttnGraph and MultiSoc under the compared reward models."/>
+        </figure>
+        <p class="has-text-centered is-size-6" style="margin-top: 0.8em; color: #666;">
+          Sample trajectories for AttnGraph (top row) and MultiSoc (bottom row) under Base,
+          R<sub>d</sub>, R<sub>v</sub>, and R<sub>p</sub> (left to right). R<sub>p</sub> consistently
+          selects wider, more peripheral passing arcs avoiding dense intersections of crowd flow.
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{soualhi2026proxemics,
+  author    = {Soualhi, Takieddine and Saraydaryan, Jacques and Matignon, Laetitia},
+  title     = {Towards Socially Compliant Navigation in Deep Reinforcement Learning
+               via Proxemics-Based Reward Modeling},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="#" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This work was funded by the French National Research Agency through the
+            SOLARNav project (ANR-23-DMRO-0018).
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+            Attribution-ShareAlike 4.0 International License</a>.
+            The template is adapted from <a href="https://nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
